@@ -1,0 +1,27 @@
+FUNCTION dot_product(v1 : ARRAY_OF FLOAT[10], v2 : ARRAY_OF FLOAT[10]) : FLOAT
+VAR
+    i : INTEGER;
+    ps : INTEGER:=0;
+BEGIN
+    FOR i FROM 0 TO v1.length-1 DO
+        ps := ps + v1[i]*v2[i];
+    END_FOR
+    RETURN ps;
+END
+
+ALGORITHM check_orthogonal_vect
+VAR
+    v_1, v_2, ..., v_n : ARRAY_OF FLOAT[10];
+    i, j : INTEGER;
+BEGIN
+    FOR i FROM 0 TO n-1 DO
+        FOR j FROM 0 TO n-1 DO
+            IF (i <> j) THEN
+                ps := dot_product(v_i, v_j);
+                IF (ps = 0) THEN
+                    Write('v_i and v_j are orthogonal')
+                END_IF 
+            END_IF 
+        END_FOR
+    END_FOR
+END
