@@ -1,4 +1,4 @@
-PROCEDURE dot_product(VAR v1 : ARRAY_OF FLOAT[10], VAR v2 : ARRAY_OF FLOAT[10])
+PROCEDURE dot_product(v1 : ARRAY_OF FLOAT[10], v2 : ARRAY_OF FLOAT[10], VAR ps : FLOAT)
 VAR
     i : INTEGER;
     ps : INTEGER:=0;
@@ -15,8 +15,12 @@ VAR
 BEGIN
     FOR i FROM 0 TO n-1 DO
         FOR j FROM 0 TO n-1 DO
+            ps := 0;
             IF (i <> j) THEN
-                dot_product(v_i, v_j)
+                dot_product(v_i, v_j, ps)
+                IF (ps = 0) THEN
+                    Write('v_i and v_j are orthogonal')
+                END_IF 
             END_IF 
         END_FOR
     END_FOR
